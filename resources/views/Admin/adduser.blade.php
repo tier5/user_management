@@ -2,6 +2,41 @@
 
 @section('content')
 
+<script>
+    
+    $(document).ready(function(){
+
+    $('#first_name').focus();
+
+    function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+           
+            $('#image_preview').attr('src', e.target.result);
+            $('#image_preview').attr('width', '250');
+            $('#image_preview').attr('height', '250');
+            $('#image_preview').css('display','block');
+        }
+
+        reader.readAsDataURL(input.files[0]);
+       
+        }
+    else
+        {
+              $('#image_preview').css('display','none');
+        }
+    }
+
+$("#image_upload").change(function(){
+    readURL(this);
+});
+
+    });
+
+</script>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-primary">
@@ -15,11 +50,11 @@
                            <div class="row">
                            <div class="col-lg-6">
 
-                            <form role="form" method="post" action="{{route('insert_user')}}">
+                            <form role="form" method="post" action="{{route('insert_user')}}" enctype="multipart/form-data">
                                 {{csrf_field()}}
                             <div class="form-group">
                                 <label>First Name:</label>
-                                <input class="form-control" placeholder="First Name" name="first_name" required>
+                                <input class="form-control" placeholder="First Name" id="first_name" name="first_name" required>
                             </div>
 
                              <div class="form-group">
@@ -31,6 +66,13 @@
                                 <label>Email:</label>
                                 <input type="email" class="form-control" name="email" placeholder="Email" required>
                             </div>
+
+                             <div class="form-group">
+                                <label>Image Upload:</label>
+                                <img src="#" id="image_preview" style="display:none"/>
+                                <input type="file" id="image_upload" name="image_upload" accept="image/*"  required>
+                            </div>
+
 
                             <div class="form-group">
                                 <label>Phone Number:</label>
@@ -80,7 +122,6 @@
                             @endif
 
                             @if(Session::has('error'))
-                           
                              <div class="alert alert-danger">
                                <p><center> {{Session::get('error')}}</center></p>
                             </div>

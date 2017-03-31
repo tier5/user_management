@@ -17,8 +17,9 @@
     <!-- Custom CSS -->
     <link href="/css/sb-admin.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="/css/plugins/morris.css" rel="stylesheet">
+  
+<script   src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script> 
+
 
     <!-- Custom Fonts -->
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -52,7 +53,7 @@
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
-                            
+
                             <li class="active">
                                 <i class="fa fa-bar-chart-o"></i> Charts
                             </li>
@@ -75,6 +76,7 @@
     </div>
     <!-- /#wrapper -->
 
+ 
     <!-- jQuery -->
     <script src="/js/jquery.js"></script>
 

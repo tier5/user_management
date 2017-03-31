@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('role')->default(2)->comment="1->SuperAdmin 2->Users";
             $table->integer('blocked_status')->default(0);
+            $table->integer('deleted_status')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

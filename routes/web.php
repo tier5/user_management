@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','HomeController@index')->name('login_page')->middleware('guest');
+Route::get('/','HomeController@index')->name('login_page');
 
 
 
@@ -27,15 +27,19 @@ Route::get('/adminhome/viewusertable','UsersController@viewusertable')->name('vi
 
 Route::post('/adminhome/insertuser','UsersController@insertuser')->name('insert_user');
 
-Route::get('/adminhome/viewuser/{id}','UsersController@viewuser')->name('view_users');
+Route::post('/adminhome/viewuser','UsersController@viewuser')->name('view_users');
 
 Route::get('/adminhome/edituser/{id}','UsersController@edituser')->name('edit_users');
 
-Route::get('/adminhome/deleteuser/{id}','UsersController@deleteuser')->name('delete_users');
+Route::post('/adminhome/deleteuser','UsersController@deleteuser')->name('delete_users');
 
 Route::post('/adminhome/updateuser','UsersController@updateuser')->name('update_user');
 
-Route::get('/adminhome/blockuser/{id}','UsersController@blockuser')->name('block_users');
+Route::post('/adminhome/blockuser','UsersController@blockuser')->name('block_users');
+
+Route::post('/adminhome/unblockuser','UsersController@unblockuser')->name('unblock_users');
+
+Route::post('/adminhome/searchuser','UsersController@searchuser')->name('search_user');
 
 Route::get('/adminhome/logout','AuthController@logout')->name('logout');
 

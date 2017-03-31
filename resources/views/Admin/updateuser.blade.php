@@ -92,7 +92,7 @@
 
                         
                             @if(Session::has('success'))
-                             <div class="alert alert-success">
+                             <div class="alert alert-success" >
                                <p><center>{{Session::get('success')}}</center></p>
                             </div>
                             @endif
